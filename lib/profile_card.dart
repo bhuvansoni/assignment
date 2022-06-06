@@ -36,27 +36,27 @@ class _ProfileCardState extends State<ProfileCard> {
                     children: [
                       Text(
                         Random().nextInt(10).toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.lightBlue,
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Plans',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 6,
                       ),
                       Text(
                         Random().nextInt(20).toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.lightBlue,
                         ),
                       ),
-                      Text('People'),
+                      const Text('People'),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: CircleAvatar(
                       radius: 40,
                       backgroundImage:
@@ -65,12 +65,12 @@ class _ProfileCardState extends State<ProfileCard> {
                   ),
                   Column(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.location_pin,
                         color: Colors.lightBlue,
                       ),
                       Text(Random().nextDouble().toStringAsFixed(2)),
-                      SizedBox(
+                      const SizedBox(
                         height: 6,
                       ),
                       Icon(
@@ -111,7 +111,7 @@ class _ProfileCardState extends State<ProfileCard> {
                             ?.copyWith(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.lightBlue)),
-                    SizedBox(height: 4.0),
+                    const SizedBox(height: 4.0),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -119,33 +119,17 @@ class _ProfileCardState extends State<ProfileCard> {
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Padding(
+                        children: ['sports', 'fruits', 'food'].map<Widget>((e) {
+                          return Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: CircleAvatar(
                               radius: 40,
                               backgroundImage: NetworkImage(
-                                'https://source.unsplash.com/random/?sports',
+                                'https://source.unsplash.com/random/?$e',
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: CircleAvatar(
-                              radius: 40,
-                              backgroundImage: NetworkImage(
-                                  'https://source.unsplash.com/random/?fruit'),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  'https://source.unsplash.com/random/?food'),
-                              radius: 40,
-                            ),
-                          ),
-                        ],
+                          );
+                        }).toList(),
                       ),
                     ),
                   ],
@@ -162,7 +146,7 @@ class _ProfileCardState extends State<ProfileCard> {
                           fontWeight: FontWeight.bold, color: Colors.lightBlue),
                       textAlign: TextAlign.start,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Container(
@@ -172,33 +156,17 @@ class _ProfileCardState extends State<ProfileCard> {
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Padding(
+                        children: ['sports', 'fruits', 'food'].map<Widget>((e) {
+                          return Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: CircleAvatar(
                               radius: 40,
                               backgroundImage: NetworkImage(
-                                'https://source.unsplash.com/random/?sports',
+                                'https://source.unsplash.com/random/?$e',
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: CircleAvatar(
-                              radius: 40,
-                              backgroundImage: NetworkImage(
-                                  'https://source.unsplash.com/random/?fruit'),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  'https://source.unsplash.com/random/?food'),
-                              radius: 40,
-                            ),
-                          ),
-                        ],
+                          );
+                        }).toList(),
                       ),
                     ),
                   ],

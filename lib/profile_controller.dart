@@ -15,6 +15,7 @@ class ProfileController extends GetxController {
 //  status 1 for search
 //  status 2 for filter
 
+  @override
   void onInit() {
     fetchFirstList();
     super.onInit();
@@ -38,10 +39,8 @@ class ProfileController extends GetxController {
     }
     status(1);
     showIndicator(true);
-    print(name);
     List<DocumentSnapshot> newDocumentList =
         await firebaseProvider.searchUser(name);
-    print(newDocumentList.length);
     searchProfiles.clear();
     searchProfiles.value = newDocumentList;
     showIndicator(false);

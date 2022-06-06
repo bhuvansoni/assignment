@@ -32,8 +32,6 @@ class FirebaseProvider {
 
   Future<List<DocumentSnapshot>> searchMoreUsers(
       List<DocumentSnapshot> documentList, String query) async {
-    print(query.substring(0, query.length - 1) +
-        String.fromCharCode(query.codeUnitAt(query.length - 1) + 1));
     return (await FirebaseFirestore.instance
             .collection("users")
             .where('name',

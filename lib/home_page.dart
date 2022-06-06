@@ -24,8 +24,7 @@ class _HomePageState extends State<HomePage> {
   void _scrollListener() {
     if (controller.offset >= controller.position.maxScrollExtent &&
         !controller.position.outOfRange) {
-      print("at the end of list");
-      if (profileController.status == 0) {
+      if (profileController.status.value == 0) {
         profileController.fetchNextMovies();
       }
     }
@@ -40,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         title: const Text(
           'JumpIn',
-          style: const TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black),
         ),
       ),
       body: SingleChildScrollView(
@@ -66,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                         controller: textController,
                         decoration: const InputDecoration(
                           hintText: 'Search User',
-                          prefixIcon: const Icon(Icons.search),
+                          prefixIcon:  Icon(Icons.search),
                           border: InputBorder.none,
                         ),
                       ),
@@ -79,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         Get.dialog(
                           Obx(
-                            () => Container(
+                            () => SizedBox(
                               height: 120,
                               child: AlertDialog(
                                 shape: RoundedRectangleBorder(
@@ -92,14 +91,14 @@ class _HomePageState extends State<HomePage> {
                                         onPressed: () {
                                           Get.back();
                                         },
-                                        icon: Icon(Icons.arrow_back_ios)),
-                                    Text('Select from a wide range of filters'),
+                                        icon: const Icon(Icons.arrow_back_ios)),
+                                    const Text('Select from a wide range of filters'),
                                   ],
                                 ),
                                 content: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text('Age (in years)'),
+                                    const Text('Age (in years)'),
                                     RangeSlider(
                                       labels: const RangeLabels("16", "80"),
                                       values: RangeValues(
@@ -123,13 +122,13 @@ class _HomePageState extends State<HomePage> {
                                       onPressed: () {
                                         Get.back();
                                       },
-                                      child: Text('Reset')),
+                                      child: const Text('Reset')),
                                   ElevatedButton(
                                       onPressed: () {
                                         profileController.filterUsers();
                                         Get.back();
                                       },
-                                      child: Text('Done')),
+                                      child: const Text('Done')),
                                 ],
                               ),
                             ),
@@ -149,7 +148,7 @@ class _HomePageState extends State<HomePage> {
               }
               if (profileController.status.value == 0) {
                 return Center(
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQuery.of(context).size.height * 0.7,
                     child: PageView.builder(
                       scrollDirection: Axis.horizontal,
@@ -167,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 );
               } else if (profileController.status.value == 1) {
-                if (profileController.searchProfiles.length == 0) {
+                if (profileController.searchProfiles.isEmpty) {
                   return Center(
                     child: Align(
                       alignment: Alignment.center,
@@ -179,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                   );
                 }
                 return Center(
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQuery.of(context).size.height * 0.7,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -198,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                 );
               } else {
                 return Center(
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQuery.of(context).size.height * 0.7,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
